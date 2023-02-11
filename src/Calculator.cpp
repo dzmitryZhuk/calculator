@@ -60,9 +60,9 @@ void Calculator::initLineEdit()
   //QRegExpValidator* validator = new QRegExpValidator(regex, this);
   //lineEdit->setValidator(validator);
 
-  //QFont font = lineEdit->font();
-  //font.setPointSize(lineEdit->height() / 3);
-  //lineEdit->setFont(font);
+  QFont font = lineEdit->font();
+  font.setPointSize(lineEdit->height() / 3);
+  lineEdit->setFont(font);
 }
 
 QPushButton* Calculator::createButton(QChar name)
@@ -71,9 +71,12 @@ QPushButton* Calculator::createButton(QChar name)
   button->setText(name);
   button->setObjectName(createChildObjectName(QString::fromUtf8("button") + QString(DELIMITER) + name));
   button->setFixedSize(width() / 4, height() / 5);    // !dangerous
+  QFont font = button->font();
+  font.setPointSize(button->height() / 4);
+  button->setFont(font);
   if (name == '=')
     connect(button, &QPushButton::clicked, this, [=]() { calculate(); });
-  /*else */if (name == '.')
+  else if (name == '.')
     connect(button, &QPushButton::clicked, this, &Calculator::on_dotPressed);
   else if (name.isDigit())
     connect(button, &QPushButton::clicked, this, [=]() { lineEdit->setText(lineEdit->text() + name); });
