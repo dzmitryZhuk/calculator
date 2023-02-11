@@ -7,7 +7,14 @@
 </a>
 
 </div>
-A simple calculator application that performs an operation on two numbers
+A simple calculator application that performs an operation on two numbers.
+
+Possible operations:
+
++ multiplication 
++ subtraction
++ addition 
++ division
 
 ## Developer team
 
